@@ -21,6 +21,7 @@ namespace Photo2FTP
 
             cameraLabelTextBox.Text = CameraSettings.Name;
             sourceFolderTextBox.Text = CameraSettings.SourceFolder;
+            cameraIdentifierTextBox.Text = CameraSettings.Identifier;
             targetFolderTextBox.Text = CameraSettings.TargetFolder;
             newFileNameTextBox.Text = CameraSettings.TargetFile;
         }
@@ -41,6 +42,7 @@ namespace Photo2FTP
                     {
                         Name = cameraLabelTextBox.Text,
                         SourceFolder = sourceFolderTextBox.Text,
+                        Identifier = cameraIdentifierTextBox.Text,
                         TargetFile = newFileNameTextBox.Text,
                         TargetFolder = targetFolderTextBox.Text
                     };
@@ -67,6 +69,13 @@ namespace Photo2FTP
                 {
                     MessageBox.Show("Není vyplněno označní kamery!", "Photo2FTP", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     cameraLabelTextBox.Focus();
+                    return false;
+                }
+
+                if (cameraIdentifierTextBox.Text.Length == 0)
+                {
+                    MessageBox.Show("Není vyplněn identifikátor kamery!", "Photo2FTP", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cameraIdentifierTextBox.Focus();
                     return false;
                 }
 

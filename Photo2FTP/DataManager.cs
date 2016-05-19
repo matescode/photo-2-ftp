@@ -72,8 +72,10 @@ namespace Photo2FTP
                             return;
                         }
 
-                        LogCameraMessage(cameraSettings.Name, String.Format("prohledávám složku '{0}'.", cameraSettings.SourceFolder));
-                        string filePath = FindRecentFile(cameraSettings.SourceFolder);
+                        string baseFolder = GetBaseFolder(cameraSettings.SourceFolder, cameraSettings.Identifier);
+                        LogCameraMessage(cameraSettings.Name, string.Format("prohledávám složku '{0}'.", baseFolder));
+
+                        string filePath = FindRecentFile(baseFolder);
                         if (!CheckRecentFile(cameraSettings.Name, filePath))
                         {
                             LogCameraMessage(cameraSettings.Name, "žádná nová fotka");
@@ -82,7 +84,7 @@ namespace Photo2FTP
 
                         token.ThrowIfCancellationRequested();
 
-                        string targetFile = !String.IsNullOrEmpty(cameraSettings.TargetFile) ? cameraSettings.TargetFile : Path.GetFileName(filePath);
+                        string targetFile = !string.IsNullOrEmpty(cameraSettings.TargetFile) ? cameraSettings.TargetFile : Path.GetFileName(filePath);
 
                         string tempFile = Path.GetTempFileName();
 
@@ -92,9 +94,12 @@ namespace Photo2FTP
                         byte[] buffer = ReadToBuffer(tempFile);
 
                         token.ThrowIfCancellationRequested();
-
                         LogCameraMessage(cameraSettings.Name, "odesílám fotku na server");
+#if DEBUG
+                        SaveToFile(cameraSettings.TargetFolder, targetFile, buffer);
+#else
                         Send(cameraSettings.TargetFolder, targetFile, buffer);
+#endif
                         LogCameraMessage(cameraSettings.Name, "fotka odeslána");
                         File.Delete(tempFile);
                     }
@@ -132,7 +137,7 @@ namespace Photo2FTP
 
         private void LogCameraMessage(string camera, string text)
         {
-            Log.LogText(String.Format("{0}: {1}", camera, text));
+            Log.LogText(string.Format("{0}: {1}", camera, text));
         }
 
         private bool IsSending(string camera)
@@ -176,6 +181,13 @@ namespace Photo2FTP
             {
                 _sendingStatus.Remove(camera);
             }
+        }
+
+        private string GetBaseFolder(string sourceFolder, string identifier)
+        {
+            string dateFolder = string.Format("{0}-{1}-{2}", DateTime.Now.Year.ToString("D4"), DateTime.Now.Month.ToString("D2"), DateTime.Now.Day.ToString("D2"));
+            string baseFolder = string.Format("{0}{1}{2}{1}{3}", sourceFolder, Path.DirectorySeparatorChar, dateFolder, identifier);
+            return baseFolder;
         }
 
         private string FindRecentFile(string sourceFolder)
@@ -289,6 +301,17 @@ namespace Photo2FTP
             }
 
             requestStream.Close();
+        }
+
+        private void SaveToFile(string targetFolder, string targetFile, byte[] buffer)
+        {
+            string path = string.Format("{0}{1}{2}", targetFolder, Path.DirectorySeparatorChar, targetFile);
+            using (FileStream fs = File.OpenWrite(path))
+            {
+                fs.Write(buffer, 0, buffer.Length);
+                fs.Flush();
+                fs.Close();
+            }
         }
 
         #endregion

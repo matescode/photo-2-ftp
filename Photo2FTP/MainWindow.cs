@@ -116,6 +116,7 @@ namespace Photo2FTP
             {
                 settings.Name = cameraForm.CameraSettings.Name;
                 settings.SourceFolder = cameraForm.CameraSettings.SourceFolder;
+                settings.Identifier = cameraForm.CameraSettings.Identifier;
                 settings.TargetFolder = cameraForm.CameraSettings.TargetFolder;
                 settings.TargetFile = cameraForm.CameraSettings.TargetFile;
             }

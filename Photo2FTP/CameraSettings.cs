@@ -6,13 +6,15 @@ namespace Photo2FTP
     {
         public CameraSettings()
         {
-            TargetFolder = String.Empty;
-            TargetFile = String.Empty;
+            TargetFolder = string.Empty;
+            TargetFile = string.Empty;
         }
 
         public string Name { get; set; }
 
         public string SourceFolder { get; set; }
+
+        public string Identifier { get; set; }
 
         public string TargetFolder { get; set; }
 

@@ -360,7 +360,7 @@
             // 
             this.outlineColorLabel.AutoSize = true;
             this.outlineColorLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.outlineColorLabel.Location = new System.Drawing.Point(139, 49);
+            this.outlineColorLabel.Location = new System.Drawing.Point(139, 45);
             this.outlineColorLabel.Name = "outlineColorLabel";
             this.outlineColorLabel.Size = new System.Drawing.Size(24, 15);
             this.outlineColorLabel.TabIndex = 5;
@@ -368,7 +368,7 @@
             // 
             // outlineWidthUpDown
             // 
-            this.outlineWidthUpDown.Location = new System.Drawing.Point(108, 72);
+            this.outlineWidthUpDown.Location = new System.Drawing.Point(108, 67);
             this.outlineWidthUpDown.Maximum = new decimal(new int[] {
             50,
             0,
@@ -392,7 +392,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 74);
+            this.label16.Location = new System.Drawing.Point(6, 69);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(71, 13);
             this.label16.TabIndex = 6;
@@ -400,7 +400,7 @@
             // 
             // selectOutlineColorButton
             // 
-            this.selectOutlineColorButton.Location = new System.Drawing.Point(108, 46);
+            this.selectOutlineColorButton.Location = new System.Drawing.Point(108, 42);
             this.selectOutlineColorButton.Name = "selectOutlineColorButton";
             this.selectOutlineColorButton.Size = new System.Drawing.Size(25, 20);
             this.selectOutlineColorButton.TabIndex = 4;
@@ -411,7 +411,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 50);
+            this.label15.Location = new System.Drawing.Point(6, 46);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(72, 13);
             this.label15.TabIndex = 3;
@@ -505,7 +505,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(444, 622);
+            this.ClientSize = new System.Drawing.Size(444, 621);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.label11);

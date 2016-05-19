@@ -40,11 +40,13 @@
             this.okButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cameraIdentifierTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // newFileNameTextBox
             // 
-            this.newFileNameTextBox.Location = new System.Drawing.Point(159, 83);
+            this.newFileNameTextBox.Location = new System.Drawing.Point(159, 109);
             this.newFileNameTextBox.Name = "newFileNameTextBox";
             this.newFileNameTextBox.Size = new System.Drawing.Size(200, 20);
             this.newFileNameTextBox.TabIndex = 8;
@@ -52,7 +54,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(12, 86);
+            this.label12.Location = new System.Drawing.Point(12, 112);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(108, 13);
             this.label12.TabIndex = 7;
@@ -70,7 +72,7 @@
             // 
             // targetFolderTextBox
             // 
-            this.targetFolderTextBox.Location = new System.Drawing.Point(159, 57);
+            this.targetFolderTextBox.Location = new System.Drawing.Point(159, 83);
             this.targetFolderTextBox.Name = "targetFolderTextBox";
             this.targetFolderTextBox.Size = new System.Drawing.Size(200, 20);
             this.targetFolderTextBox.TabIndex = 6;
@@ -86,7 +88,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 60);
+            this.label5.Location = new System.Drawing.Point(12, 86);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(112, 13);
             this.label5.TabIndex = 5;
@@ -119,7 +121,7 @@
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(121, 109);
+            this.okButton.Location = new System.Drawing.Point(121, 135);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 9;
@@ -130,7 +132,7 @@
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(202, 109);
+            this.cancelButton.Location = new System.Drawing.Point(202, 135);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 10;
@@ -138,13 +140,31 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 61);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(102, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Identifikátor kamery:";
+            // 
+            // cameraIdentifierTextBox
+            // 
+            this.cameraIdentifierTextBox.Location = new System.Drawing.Point(159, 58);
+            this.cameraIdentifierTextBox.Name = "cameraIdentifierTextBox";
+            this.cameraIdentifierTextBox.Size = new System.Drawing.Size(200, 20);
+            this.cameraIdentifierTextBox.TabIndex = 12;
+            // 
             // CameraForm
             // 
             this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(399, 137);
+            this.ClientSize = new System.Drawing.Size(399, 166);
+            this.Controls.Add(this.cameraIdentifierTextBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.cameraLabelTextBox);
@@ -157,9 +177,9 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(415, 175);
+            this.MaximumSize = new System.Drawing.Size(415, 205);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(415, 175);
+            this.MinimumSize = new System.Drawing.Size(415, 205);
             this.Name = "CameraForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -184,5 +204,7 @@
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox cameraIdentifierTextBox;
     }
 }

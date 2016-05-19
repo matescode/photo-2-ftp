@@ -73,6 +73,7 @@ namespace Photo2FTP
             {
                 XmlElement camera = AddElementWithAttribute(document, cameraList, "Camera", "Name", cameraSetting.Name);
                 AddElementWithValue(document, camera, "SourceFolder", cameraSetting.SourceFolder);
+                AddElementWithValue(document, camera, "Identifier", cameraSetting.Identifier);
                 AddElementWithValue(document, camera, "TargetFolder", cameraSetting.TargetFolder);
                 AddElementWithValue(document, camera, "TargetFile", cameraSetting.TargetFile);
             }
@@ -143,6 +144,7 @@ namespace Photo2FTP
                 {
                     Name = elem.GetAttribute("Name"),
                     SourceFolder = LoadElementValue(elem, "SourceFolder"),
+                    Identifier = LoadElementValue(elem, "Identifier"),
                     TargetFolder = LoadElementValue(elem, "TargetFolder"),
                     TargetFile = LoadElementValue(elem, "TargetFile")
                 };
